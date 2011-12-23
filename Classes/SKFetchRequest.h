@@ -44,7 +44,7 @@
 	SKCallback *callback;
 }
 
-@property Class entity;
+@property (assign) Class entity;
 @property (retain) NSSortDescriptor * sortDescriptor;
 @property NSUInteger fetchLimit;
 @property NSUInteger fetchOffset;
