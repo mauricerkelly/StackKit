@@ -15,6 +15,7 @@
     NSOperationQueue *stackAuthQueue;
 }
 
++ (void)initializer;
 + (id)sharedManager;
 
 - (NSArray *) knownSites;

@@ -36,20 +36,25 @@
 
 static id _manager = nil;
 
-__attribute__((constructor)) void SKSiteManager_construct() {
+//__attribute__((constructor)) void SKSiteManager_construct() {
+
+
+//__attribute__((destructor)) void SKSiteManager_destruct() {
+//    NSAutoreleasePool *p = [[NSAutoreleasePool alloc] init];
+//    [_manager release], _manager = nil;
+//    [p drain];
+//}
+
+@implementation SKSiteManager
+
++ (void)initializer {
+    NSLog(@"Initializing SKSiteManager");
     NSAutoreleasePool *p = [[NSAutoreleasePool alloc] init];
     _manager = NSAllocateObject([SKSiteManager class], 0, nil);
     [_manager _performInitialSetup];
     [p drain];
+    NSLog(@"Completed initializing SKSiteManager");
 }
-
-__attribute__((destructor)) void SKSiteManager_destruct() {
-    NSAutoreleasePool *p = [[NSAutoreleasePool alloc] init];
-    [_manager release], _manager = nil;
-    [p drain];
-}
-
-@implementation SKSiteManager
 
 + (id) sharedManager
 {
